@@ -6,16 +6,28 @@
     <title>VueJS</title>
   </head>
   <body>
-    <div id="app">{{ message }}</div>
+    <div id="app">
+        <button @click="down()">-</button>
+        {{ count }}
+        <button @click="up()">+</button>
+    </div>
     <script type="module">
       import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js";
 
       createApp({
         data() {
           return {
-            message: "hello from vuejs",
+            count: 0,
           };
         },
+        methods: {
+            up() {
+                this.count++
+            },
+            down() {
+                this.count--
+            }
+        }
       }).mount("#app");
     </script>
   </body>
